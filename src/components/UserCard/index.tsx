@@ -9,8 +9,8 @@ interface props {
 function UserCardComponent({ Users }: props) {
   return (
     <section className={style.list}>
-      {Users.map((user) => (
-        <UserListComponent user={user}></UserListComponent>
+      {Users.map((user, id) => (
+        <UserListComponent key={id} user={user}></UserListComponent>
       ))}
     </section>
   );
