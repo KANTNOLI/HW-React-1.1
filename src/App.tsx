@@ -1,7 +1,8 @@
 import CardComponent from "./components/Card";
 
 import style from "./App.module.css";
-import { Cart } from "./Interfaces.interface";
+import { Cart, User } from "./Interfaces.interface";
+import UserCardComponent from "./components/UserCard";
 
 function App() {
   const Cart: Cart = {
@@ -9,6 +10,12 @@ function App() {
     title: "Title title",
     description: "description description description description description",
   };
+
+  const Users: User[] = [
+    { avatarUrl: "img link1", email: "email@mail1", name: "name 1" },
+    { avatarUrl: "img link2", email: "email@mail2", name: "name 2" },
+    { avatarUrl: "img link3", email: "email@mail3", name: "name 3" },
+  ];
 
   return (
     <>
@@ -50,6 +57,7 @@ function App() {
         посредством “пропса”
       </p>
       <CardComponent cart={Cart}></CardComponent>
+      <UserCardComponent Users={Users}></UserCardComponent>
     </>
   );
 }
