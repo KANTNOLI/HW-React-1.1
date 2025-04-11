@@ -9,3 +9,11 @@ export interface User {
   email: string;
   avatarUrl: string;
 }
+
+export interface CartOzonIfc {
+  img: string;
+  title: string;
+  price: number;
+  disc: number;
+  count: number;
+}

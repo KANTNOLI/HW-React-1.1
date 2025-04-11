@@ -4,18 +4,17 @@ import style from "./App.module.css";
 import { Cart, User } from "./Interfaces.interface";
 import UserCardComponent from "./components/UserCard";
 import ThemeSwitcherComponent from "./components/ThemeSwitcher";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import CartOzon from "./components/CartOzon";
 
 function App() {
-  const body = document.body;
+  const bodyRef = useRef(document.body);
   const [isDarkMode, setisDarkMode] = useState<boolean>(true);
 
   useEffect(() => {
-    if (isDarkMode) {
-      body.style.backgroundColor = "rgb(34, 34, 34)";
-    } else {
-      body.style.backgroundColor = "rgb(184, 184, 184)";
-    }
+    bodyRef.current.style.background = isDarkMode
+      ? "rgb(34, 34, 34)"
+      : "rgb(184, 184, 184)";
   }, [isDarkMode]);
 
   const Cart: Cart = {
@@ -68,11 +67,15 @@ function App() {
         посредством “пропса”
       </p>
       <CardComponent cart={Cart}></CardComponent>
+
       <UserCardComponent Users={Users}></UserCardComponent>
+
       <ThemeSwitcherComponent
         callback={(setValue: boolean) => setisDarkMode(setValue)}
         value={isDarkMode}
       ></ThemeSwitcherComponent>
+
+      <CartOzon></CartOzon>
     </>
   );
 }

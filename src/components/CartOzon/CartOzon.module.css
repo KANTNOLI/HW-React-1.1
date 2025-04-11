@@ -1,0 +1,46 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  width: 300px;
+  height: 500px;
+  background-color: rgb(99, 99, 99);
+}
+
+.img {
+  width: 80%;
+  height: 200px;
+  background-color: rgb(0, 0, 0);
+}
+
+.prices {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  background-color: rgb(70, 70, 70);
+}
+
+.actualPrice{
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(149, 231, 149);
+}
+
+.mainPrice{
+    text-decoration: line-through;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: end;
+    color: rgb(170, 21, 21);
+}
+
+.discPrice{
+    margin-left: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(45, 155, 45);
+}
