@@ -1,0 +1,1 @@
+import style from "./UserListComponent.module.style"
