@@ -3,8 +3,21 @@ import CardComponent from "./components/Card";
 import style from "./App.module.css";
 import { Cart, User } from "./Interfaces.interface";
 import UserCardComponent from "./components/UserCard";
+import ThemeSwitcherComponent from "./components/ThemeSwitcher";
+import { useEffect, useState } from "react";
 
 function App() {
+  const body = document.body;
+  const [isDarkMode, setisDarkMode] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      body.style.backgroundColor = "rgb(34, 34, 34)";
+    } else {
+      body.style.backgroundColor = "rgb(184, 184, 184)";
+    }
+  }, [isDarkMode]);
+
   const Cart: Cart = {
     imageUrl: "img link",
     title: "Title title",
@@ -25,7 +38,6 @@ function App() {
         imageUrl (строка). Отобразите эти данные в виде карточки с изображением,
         заголовком и описанием.
       </p>
-
       <p className={style.condition}>
         2. Список пользователей: Создайте компонент UserListComponent, который
         принимает массив из 3-ёх объектов пользователей через “пропс”. Каждый
@@ -51,13 +63,16 @@ function App() {
         случайным образом из заготовленного массива объектов. Стартовую
         стоимость товара рандомить случайным образом.
       </p>
-
       <p className={style.condition}>
         Усложнение: реализовать возможносьт принимать стартовые данные
         посредством “пропса”
       </p>
       <CardComponent cart={Cart}></CardComponent>
       <UserCardComponent Users={Users}></UserCardComponent>
+      <ThemeSwitcherComponent
+        callback={(setValue: boolean) => setisDarkMode(setValue)}
+        value={isDarkMode}
+      ></ThemeSwitcherComponent>
     </>
   );
 }
